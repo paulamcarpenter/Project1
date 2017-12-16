@@ -1,99 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Phoenix Events Calendar</title>
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta charset="UTF-8">
+    <title>International Geo Mosquitos</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <link href="style.css" rel="stylesheet">
-    <!-- connection to Firebase -->
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+Double+Pica+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--Link to Leaflet CSS file -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="" />
+    <!--Link to Leaflet CSS file -->
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+        <!-- connection to Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-    <!-- connection to Eventful API -->
-    <script type="text/javascript" src="http://api.eventful.com/js/api"></script>
-
+</head>
 
 <body>
     <div class="container">
         <div id="jumbo" class="jumbotron jumbotron-large">
-            <h1><u>YOU SOCIAL BUTTERFLY</u></h1>
+            <h1>International Geo Mosquitos</h1>
         </div>
-
-        <div class="container">
-            <h1>Phoenix Events Calendar</h1>
-            <div class="cal">
-                <div class="cal__header">
-                    <button class="btn btn-action btn-link btn-lg" data-calendar-toggle="previous">
-                        <svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
-                        </svg>
-                    </button>
-                    <div class="cal__header__label" data-calendar-label="month">
-                    </div>
-                    <button class="btn btn-action btn-link btn-lg" data-calendar-toggle="next">
-                        <svg height="24" version="1.1" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div class="cal__week">
-                    <span>Mon</span> <span>Tue</span><span>Wed</span> <span>Thu</span> <span>Fri</span> <span>Sat</span> <span>Sun</span>
-                </div>
-                <div class="cal__body" data-calendar-area="month"></div>
+        <div id="inline" class="row" class="col-lg-12">
+            <div id="map" class="main" class="col-md-3">
             </div>
-            <p class="demo-picked">
-                Date picked: <span data-calendar-label="picked"></span>
-
-            </p>
-
-
-        <div class="panel-body">
-            <form role="form">
-                <div class="form-group">
-                    <label for="email-input">Enter Your Email to Connect with your friends at Events:</label>
-                    <input class="form-control" id="email-input" type="text">
+            <div id="mapid" class="main" class="col-md-3">
+                <h2>Main Two</h2>
+            </div>
+            <div id="main3" class="main" class="col-md-3">
+                <h2>Main Three</h2>
+            </div>
+            <br>
+            <div id="spacer1" class="col-lg-12">
+            </div>
+            <br>
+            <div class="panel-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="email-input">Enter Your Email to Connect with your friends at Events:</label>
+                        <input class="form-control" id="email-input" type="text">
+                    </div>
+                    <button class="btn btn-default" id="add-user" type="submit">Submit</button>
+                </form>
+            </div>
+            <div id="spacer2" class="col-lg-12">
+            </div>
+            <br>
+            <div class="col-lg-12">
+                <h2 id="findus">Find us on Social Media</h2>
+            </div>
+            <div id="socialmedia">
+                <div class="sidebar" class="col-lg-12">
+                    <a id="linkedin" class="element" href="#"><img src="http://vignette3.wikia.nocookie.net/the-most-popular-girls-in-school/images/1/1a/Linkedin.png/revision/latest?cb=20150730204727" width="50px" height="50px"></a>
+                    <a class="element" href="#"><img src="http://www.freeiconspng.com/uploads/github-logo-icon-3.png" width="50px" height="50px"></a>
+                    <a class="element" href="#"><img src="https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png" height="50px" width="50px"></a>
+                    <a class="element" href="#"><img src="http://pngimg.com/uploads/instagram/instagram_PNG13.png?i=1" width="50px" height="50px"></a>
+                    <a class="element" href="#"><img src="https://angel.co/images/shared/peace_large.jpg" height="50px" width="50px"></a>
+                    <a class="element" href="#"><img src="http://static1.1.sqspcdn.com/static/f/189770/15161501/1321485418570/gust-logo-color.png?token=NjbkhAWkK9yb3Bg06XKWP0pO%2FhE%3D" height="50px" width="50px"></a>
+                    <a class="element" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Meetup_Logo_2015.png" height="50px" width="50px"></a>
+                    <a class="element" href="#"><img src="http://icons.iconarchive.com/icons/designbolts/ios8-style-social/1024/Plaxo-icon.png" height="50px" width="50px"></a>
                 </div>
-                <button class="btn btn-default" id="add-user" type="submit">Submit</button>
-            </form>
-        </div>    
-           
-
-<!-- After date picked should get pop up box asking for email.  This will be stored in Firebase for future use.   -->
-
-<!-- <button onclick="myFunction()">Please provide your email to get Events!</button> -->
-
- <!--    After legit email given with @ then Eventful API info will be returned -->
+            </div>
+            <div id="footer" class="col-lg-12">
+                <h3>Copyright&copy; IGM 2017</h3>
+            </div>
+            <script src="https://code.jquery.com/jquery.js"></script>
+            <script type="text/javascript" src="javascript.js"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVkHwaDdUmhxKp6Lw9DU3QXR3U4b8SA7k&callback=initMap"></script>
         
-
-        </div>
-        <!--Social Media Sidebar (actually placed at bottom so calendar scales in a reasonable fashion) -->
-        <div class="sidebar">
-            <h2>Find us on Social Media</h2>
-            <a id="linkedin" class="element" href="#"><img src="http://vignette3.wikia.nocookie.net/the-most-popular-girls-in-school/images/1/1a/Linkedin.png/revision/latest?cb=20150730204727" width="50px" height="50px"></a>
-            <a class="element" href="#"><img src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png" width="50px" height="50px"></a>
-            <a class="element" href="#"><img src="https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png" height="50px" width="50px"></a>
-            <a class="element" href="#"><img src="http://pngimg.com/uploads/instagram/instagram_PNG13.png?i=1" width="50px" height="50px"></a>
-            <a class="element" href="#"><img src="https://angel.co/images/shared/peace_large.jpg" height="50px" width="50px"></a>
-            <a class="element" href="#"><img src="http://static1.1.sqspcdn.com/static/f/189770/15161501/1321485418570/gust-logo-color.png?token=NjbkhAWkK9yb3Bg06XKWP0pO%2FhE%3D" height="50px" width="50px"></a>
-            <a class="element" href="#"><img src="https://image.flaticon.com/icons/png/512/34/34459.png" height="50px" width="50px"></a>
-            <a class="element" href="#"><img src="http://www.userlogos.org/files/logos/MShadows/plaxo1.png" height="50px" width="50px"></a>
-            <a class="element" href="#"><img src="http://cmxhub.com/wp-content/uploads/2017/06/quibb-logo-e1500567690615.png" height="50px" width="50px"></a>
-        </div>
-        <div class="footer">
-            <h3>Copyright&copy; 2017: IGM</h3>
-        </div>
-
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="javascript.js" type="text/javascript"></script>
-
-        <script>
-        window.addEventListener('load', function() {
-            vanillacalendar.init();
-        })
-        </script>
-
-      
-  
-</body>
-
-</html>
+            

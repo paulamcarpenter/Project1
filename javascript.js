@@ -18,8 +18,9 @@ var database = firebase.database();
   var map;
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 5
+
+      center: {lat: 33.448376, lng: -112.074036},
+      zoom: 8
     });
   }
   
@@ -31,7 +32,6 @@ var email = "";
 $("#add-user").on("click", function(event) {
   event.preventDefault();
   email = $("#email-input").val().trim();
-
 
   database.ref().push({
     email: email,
@@ -58,27 +58,26 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
   console.log("Errors handled: " + errorObject.code);
 });
 
-// <!--Map variable with starting coordinates lat/lon-->
+
 var mymap = L.map('mapid').setView([39.50404, -97.00805], 3);
 
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-          maxZoom: 18,
-          id: 'mapbox.streets',
-          accessToken: 'pk.eyJ1IjoibWFkbWF4LTEyMyIsImEiOiJjamI4d2RlaDMwYXY0MzRwZTNwYXljeDd2In0.GU1kf4Tq2gwooH2qrz1ZvQ'
-      }).addTo(mymap);
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox.streets',
+                accessToken: 'pk.eyJ1IjoibWFkbWF4LTEyMyIsImEiOiJjamI4d2RlaDMwYXY0MzRwZTNwYXljeDd2In0.GU1kf4Tq2gwooH2qrz1ZvQ'
+            }).addTo(mymap);
 
-      var popup = L.popup();
+            var popup = L.popup();
 
-      function onMapClick(e) {
-          popup
-              .setLatLng(e.latlng)
-              .setContent("You clicked the map at " + e.latlng.toString())
-              .openOn(mymap);
-      }            
+            function onMapClick(e) {
+                popup
+                    .setLatLng(e.latlng)
+                    .setContent("You clicked the map at " + e.latlng.toString())
+                    .openOn(mymap);
+            }
 
-
+            mymap.on('click', onMapClick);
     
-
 
 

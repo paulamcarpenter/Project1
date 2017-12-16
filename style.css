@@ -12,6 +12,7 @@ body {
 #jumbo {
     font-family: "IM Fell Double Pica SC", serif;
     font-size: 50px;
+     text-shadow: 1px 1px 1px #000, 3px 3px 5px black;
     text-align: center;
     color: white;
     border-radius: 10px;
@@ -20,6 +21,9 @@ body {
     background-repeat: no-repeat;
     margin-top: 20px;
     margin-left: 20px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+       -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
 }
 
 #jumbo:hover {
@@ -60,14 +64,12 @@ body {
     top: 0px;
     z-index: +100;
     border-style: solid;
-    border-color: white;
 }
 
 #mapid {
     margin-left: 55px;
     width: 30%;
     border-style: solid;
-    border-color: white;
     height: 400px;
     float: left;
     color: black;  
@@ -76,7 +78,6 @@ body {
 #main3 {
     width: 30%;
     border-style: solid;
-    border-color: white;
     height: 400px;
     float: right;
     color: black;   
@@ -105,11 +106,6 @@ label {
 }
 
 input:hover {
-    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-    filter: none;
     -webkit-filter: grayscale(0);
     -webkit-transform: scale(1.1);
 }

@@ -6,7 +6,6 @@ var config = {
  storageBucket: "calendar-3648a.appspot.com",
  messagingSenderId: "980862729484"
 };
-
 firebase.initializeApp(config);
 
 

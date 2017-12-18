@@ -1,4 +1,3 @@
-
 var config = {
  apiKey: "AIzaSyBH0UC7olo9ACFcMrX9vOW-scqTXmjft7c",
  authDomain: "calendar-3648a.firebaseapp.com",
@@ -22,25 +21,18 @@ var database = firebase.database();
       zoom: 5
     });
   }
-  
-// Trying to get email validated:
-var email = "";
-// var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
- // / Capture Button Click
+
+// / Capture Button Click
 $("#add-user").on("click", function(event) {
   event.preventDefault();
   email = $("#email-input").val().trim();
-
 
   database.ref().push({
     email: email,
     dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
-
-
 });
-
 
 // Firebase watcher + initial loader + order/limit HINT: .on("child_added"
 database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(snapshot) {
@@ -51,7 +43,7 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
   console.log(sv.email);
 
   // Change the HTML to reflect
-  $("#email-display").text(sv.email);
+  // $("#email-display").text(sv.email);
 
   // Handle the errors
 }, function(errorObject) {
@@ -75,7 +67,9 @@ var mymap = L.map('mapid').setView([42.50, 12.50], 2);
               .setLatLng(e.latlng)
               .setContent("You clicked the map at " + e.latlng.toString())
               .openOn(mymap);
-      }            
+      }    
+
+     
 
 
     

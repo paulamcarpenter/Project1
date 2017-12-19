@@ -24,7 +24,7 @@ var database = firebase.database();
   }
   
 // Trying to get email validated:
-var email = "";
+// var email = "";
 // var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
  // / Capture Button Click
@@ -41,7 +41,6 @@ $("#add-user").on("click", function(event) {
 
 
 });
-
 
 // Firebase watcher + initial loader + order/limit HINT: .on("child_added"
 database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(snapshot) {

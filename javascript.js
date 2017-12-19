@@ -7,7 +7,6 @@ var config = {
  storageBucket: "calendar-3648a.appspot.com",
  messagingSenderId: "980862729484"
 };
-
 firebase.initializeApp(config);
 
  // Create a variable to reference the database
@@ -28,6 +27,7 @@ var database = firebase.database();
 
  // / Capture Button Click
 $("#add-user").on("click", function(event) {
+
   event.preventDefault();
   email = $("#email-input").val().trim();
 

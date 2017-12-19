@@ -18,18 +18,20 @@ var database = firebase.database();
     map = new google.maps.Map(document.getElementById('map'), {
 
       center: {lat: 33.448376, lng: -112.074036},
-      zoom: 8
+      zoom: 5
+
     });
   }
   
 // Trying to get email validated:
-var email = "";
+// var email = "";
 // var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 $("#add-user").on("click", function(event) {
     event.preventDefault();
     email = $("#email-input").val().trim();
 
+    alert("Check your Email January 1st to see if you've won!")
 
     database.ref().push({
         email: email,
@@ -39,7 +41,6 @@ $("#add-user").on("click", function(event) {
 
 
 });
-
 
 // Firebase watcher + initial loader + order/limit HINT: .on("child_added"
 database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(snapshot) {
@@ -57,7 +58,9 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
     console.log("Errors handled: " + errorObject.code);
 });
 
-var mymap = L.map('mapid').setView([39.50404, -97.00805], 3);
+// <!--Map variable with starting coordinates lat/lon-->
+var mymap = L.map('mapid').setView([42.50, 12.50], 2);
+
 
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',

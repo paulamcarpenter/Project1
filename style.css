@@ -74,25 +74,29 @@ body {
     border-style: solid;
 }
 
-#mapid {
+#main3 {
     margin-left: 55px;
     width: 30%;
     border-style: solid;
     height: 400px;
+    font-family: "IM Fell Double Pica SC", serif;
+    font-size: 25px;
     float: left;
     color: black;
 }
 
-#spacepeeps {
+#mapid {
     width: 30%;
     border-style: solid;
+    border-color: white;
+
     height: 400px;
     float: right;
     color: black;
 }
 
 #spacer1 {
-    min-height: 50px;
+    min-height: 20px;
     clear: both;
 }
 
@@ -110,9 +114,10 @@ button {
 
 label {
     font-family: "Cedarville Cursive", cursive;
+    font-size: 40px;
     color: white;
     font-weight: bolder;
-    font-size: 25px;
+
 }
 
 input:hover {
@@ -150,8 +155,8 @@ input:hover {
 
 #footer {
     font-family: "IM Fell Double Pica SC", serif;
-    color: #e0591f;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+
 }
 
 @keyframes shake {

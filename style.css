@@ -20,6 +20,9 @@ body {
     background-repeat: no-repeat;
     margin-top: 20px;
     margin-left: 20px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
 }
 
 #jumbo:hover {
@@ -27,6 +30,30 @@ body {
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
+}
+
+h1 {
+    font-family: "IM Fell Double Pica SC", serif;
+    font-size: 50px;
+    text-shadow: 1px 1px 1px #000, 3px 3px 5px black;
+    text-align: center;
+    overflow: hidden;
+    /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid blue;
+    /* The typwriter cursor */
+    white-space: nowrap;
+    /* Keeps the content on a single line */
+    margin: 0 auto;
+    /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em;
+    /* Adjust as needed */
+    animation: typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+
+}
+
+h2 {
+    margin-top: 20px;
 }
 
 #inline {
@@ -64,15 +91,16 @@ body {
 }
 
 #main3 {
+    background-image: url("https://img00.deviantart.net/6326/i/2010/032/9/b/deep_space_nebula_by_hameed.jpg");
     margin-left: 55px;
     width: 30%;
     border-style: solid;
     border-color: white;
     height: 400px;
     font-family: "IM Fell Double Pica SC", serif;
-    font-size: 25px;
+    font-size: 20px;
     float: left;
-    color: black;  
+    color: white;  
 }
 
 #mapid {
@@ -82,6 +110,11 @@ body {
     height: 400px;
     float: right;
     color: black;   
+}
+
+ul {
+    color: black;
+    padding: 5px;
 }
 
 #spacer1 {
@@ -171,3 +204,26 @@ input:hover {
         transform: translate3d(4px, 0, 0);
     }
 }
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
+}
+
+
+/* The typewriter cursor effect */
+
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent
+    }
+    50% {
+        border-color: black;
+    }
+}
+Add Comment Collap

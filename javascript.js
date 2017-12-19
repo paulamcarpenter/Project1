@@ -18,7 +18,7 @@ var database = firebase.database();
   var map;
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
+      center: {lat: 33.448376, lng: -112.074036},
       zoom: 5
     });
   }
@@ -32,6 +32,7 @@ $("#add-user").on("click", function(event) {
   event.preventDefault();
   email = $("#email-input").val().trim();
 
+    alert("Check your Email January 1st to see if you've won!")
 
   database.ref().push({
     email: email,
@@ -59,7 +60,7 @@ database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", funct
 });
 
 // <!--Map variable with starting coordinates lat/lon-->
-var mymap = L.map('mapid').setView([39.50404, -97.00805], 3);
+var mymap = L.map('mapid').setView([42.50, 12.50], 2);
 
       L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
           attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',

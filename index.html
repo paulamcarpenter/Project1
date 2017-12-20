@@ -14,14 +14,13 @@
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
         <!-- connection to Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-
 </head>
 
 <body>
     <div class="container">
         <div id="jumbo" class="jumbotron jumbotron-large">
             <h1>International Geo Mosquitos</h1>
-            <h4>Travel within your own state or out of this world.  We are the travel experts!</h4>
+            <h4>Travel within your own state or out of this world.  We are the travel experts.</h4>
             <h4>Enter your email below for a free trip out of this world!</h4>
         </div>
         <div id="inline" class="row" class="col-lg-12">
@@ -46,6 +45,8 @@
                     <div class="form-group">
                         <label for="email-input">Enter Your Email to Win a Trip out of this World!</label>
                         <input class="form-control" id="email-input" type="text">
+                        <div id="success_message" style="color:black"></div>
+                        <div id="error_message" style="color:black"></div>
                     </div>
                     <button class="btn btn-default" id="add-user" type="submit">Submit</button> 
                 </form>
@@ -69,11 +70,6 @@
                     <a class="element" href="#"><img src="http://icons.iconarchive.com/icons/designbolts/ios8-style-social/1024/Plaxo-icon.png" height="50px" width="50px"></a>
                 </div>
             </div>
-            <audio controls autoplay>
-              <source src="khalid.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
-
 
             <div id="footer" class="col-lg-12">
                 <h3>Copyright&copy; IGM 2017</h3>
@@ -88,9 +84,7 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script type="text/javascript" src="javascript.js"></script>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVkHwaDdUmhxKp6Lw9DU3QXR3U4b8SA7k&callback=initMap"></script>
-        
-
-
+  
 </body>
 
 </html>

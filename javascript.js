@@ -1,4 +1,3 @@
-
 var config = {
  apiKey: "AIzaSyBH0UC7olo9ACFcMrX9vOW-scqTXmjft7c",
  authDomain: "calendar-3648a.firebaseapp.com",
@@ -20,30 +19,40 @@ var database = firebase.database();
       zoom: 5
     });
   }
-  
-// Trying to get email validated:
-// var email = "";
-// var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
- // / Capture Button Click
+ // Capture Button Click
 $("#add-user").on("click", function(event) {
 
   event.preventDefault();
-  email = $("#email-input").val().trim();
+  var email = $("#email-input").val().trim();
+    console.log(validateEmail(email));
 
-    alert("Check your Email January 1st to see if you've won!")
-
-  database.ref().push({
-    email: email,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
-  });
-
+    if(validateEmail(email)) {
+      database.ref().push({
+        email: email,
+        dateAdded: firebase.database.ServerValue.TIMESTAMP
+      });   
+    } else {         
+      $("#error_message").show().html("INVALID EMAIL ADDRESS! PLEASE RESUBMIT!");
+      setTimeout(function() {
+        $('#error_message').fadeOut("slow");
+      }, 2000 );
+    }
 });
+
+function validateEmail(email) {
+  var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  return re.test(email);
+}
 
 // Firebase watcher + initial loader + order/limit HINT: .on("child_added"
 database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(snapshot) {
   // storing the snapshot.val() in a variable for convenience
   var sv = snapshot.val();
+  $('#success_message').fadeIn().html("THANK YOU! CHECK YOUR EMAIL JANUARY 1ST TO SEE IF YOU'VE WON!");
+  setTimeout(function() {
+    $('#success_message').fadeOut("slow");
+  }, 2000 );
+
 
   // Console.loging the last user's data
   console.log(sv.email);
